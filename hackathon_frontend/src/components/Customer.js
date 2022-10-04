@@ -24,7 +24,7 @@ const Customer = () => {
           <Container>
             <Navbar.Brand
               as={Link}
-              to={"/"}
+              to={"/home"}
               href="#home"
               className="fw-bold"
               style={{ marginLeft: 0 }}
