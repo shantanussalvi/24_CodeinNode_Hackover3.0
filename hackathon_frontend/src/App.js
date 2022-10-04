@@ -4,13 +4,16 @@ import Home from "./components/Home";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Organizer from "./Modules/Organizer";
 import Customer from "./components/Customer";
+import Login from "./components/LoginComponents/Login"
 
 function App() {
   return (
+   
     <BrowserRouter>
       <div className="App">
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Login/>} />
+          <Route path="/home" element={<Home/>} />
           <Route path="/organize" element={<Organizer />} />
           <Route path="/trending" element={<Home />} />
           <Route path="/categories" element={<Home />} />

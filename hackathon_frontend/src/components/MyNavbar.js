@@ -27,7 +27,7 @@ const MyNavbar = () => {
             className="justify-content-end"
           >
             <Nav className="mx-5 fw-bold">
-              <Nav.Link as={Link} to={"/"} href="#home">
+              <Nav.Link as={Link} to={"/home"} href="#home">
                 HOME
               </Nav.Link>
               <Nav.Link as={Link} to={"/organize"} href="#organize">
