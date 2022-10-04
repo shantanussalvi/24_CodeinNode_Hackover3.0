@@ -15,7 +15,7 @@ const Home = () => {
       <section className="nav">
         <MyNavbar/>
       </section>
-      <section className="carousel" style={{margin:20}}>
+      <section className="carousel" style={{margin:10}}>
         <Carousel>
           <Carousel.Item>
             <img
