@@ -45,7 +45,7 @@ const Home = () => {
           </Container>
         </Navbar>
       </section>
-      <section className="carousel">
+      <section className="carousel p-3">
         <Carousel>
           <Carousel.Item>
             <img
@@ -105,7 +105,7 @@ const Home = () => {
         </Carousel>
       </section>
       <section className="about p-3">
-        <Container>
+        {/* <Container> */}
           <Card className="bg-dark text-white text-start fw-bold">
             <Card.Img
               src="https://hire4event.com/blogs/wp-content/uploads/2019/03/Event-management-companies-in-Delhi-NCR.jpg"
@@ -134,7 +134,7 @@ const Home = () => {
               {/* <Card.Text>Last updated 3 mins ago</Card.Text> */}
             </Card.ImgOverlay>
           </Card>
-        </Container>
+        {/* </Container> */}
       </section>
       <section className="footer">
         <Container
