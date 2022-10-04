@@ -27,7 +27,7 @@ const MyNavbar = () => {
             className="justify-content-end"
           >
             <Nav className="mx-5 fw-bold">
-              <Nav.Link as={Link} to={"/home"} href="#home">
+              <Nav.Link as={Link} to={"/"} href="#home">
                 HOME
               </Nav.Link>
               <Nav.Link as={Link} to={"/organize"} href="#organize">
@@ -38,6 +38,9 @@ const MyNavbar = () => {
               </Nav.Link>
               <Nav.Link as={Link} to={"/categories"} href="#categories">
                 CATEGORIES
+              </Nav.Link>
+              <Nav.Link as={Link} to={"/login"} href="#categories">
+                LOGIN
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>

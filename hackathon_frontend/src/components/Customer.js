@@ -7,6 +7,7 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import { Button, Card, CardGroup, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { CgProfile } from "react-icons/cg";
+
 const Customer = () => {
   return (
     <div style={{ backgroundColor: "black" }}>
@@ -24,7 +25,7 @@ const Customer = () => {
           <Container>
             <Navbar.Brand
               as={Link}
-              to={"/home"}
+              to={"/"}
               href="#home"
               className="fw-bold"
               style={{ marginLeft: 0 }}
