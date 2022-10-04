@@ -7,45 +7,15 @@ import Carousel from "react-bootstrap/Carousel";
 import { Row, Col, Card, Button } from "react-bootstrap";
 import { FaFacebook, FaTwitter, FaLinkedin, FaYoutube } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import MyNavbar from "./MyNavbar";
 
 const Home = () => {
   return (
     <div>
       <section className="nav">
-        <Navbar
-          expand="lg"
-          variant="dark"
-          className="fixed-top"
-          style={{ backgroundColor: "black" }}
-        >
-          <Container>
-            <Navbar.Brand href="#home" className="m-2 mx-4 fw-bold">
-              Book My Event
-            </Navbar.Brand>
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse
-              id="basic-navbar-nav"
-              className="justify-content-end"
-            >
-              <Nav className="mx-5 fw-bold">
-                <Nav.Link as={Link} to={"/"} href="#home">
-                  HOME
-                </Nav.Link>
-                <Nav.Link as={Link} to={"/organize"} href="#organize">
-                  ORGANIZE
-                </Nav.Link>
-                <Nav.Link as={Link} to={"/trending"} href="#trending">
-                  TRENDING EVENTS
-                </Nav.Link>
-                <Nav.Link as={Link} to={"/categories"} href="#categories">
-                  CATEGORIES
-                </Nav.Link>
-              </Nav>
-            </Navbar.Collapse>
-          </Container>
-        </Navbar>
+        <MyNavbar/>
       </section>
-      <section className="carousel p-3">
+      <section className="carousel" style={{margin:20}}>
         <Carousel>
           <Carousel.Item>
             <img
