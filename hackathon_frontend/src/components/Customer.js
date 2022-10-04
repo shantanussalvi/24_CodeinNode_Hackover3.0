@@ -6,7 +6,7 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { Button, Card, CardGroup, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import {CgProfile} from "react-icons/cg"
+import { CgProfile } from "react-icons/cg";
 const Customer = () => {
   return (
     <div style={{ backgroundColor: "black" }}>
@@ -29,7 +29,10 @@ const Customer = () => {
               className="fw-bold"
               style={{ marginLeft: 0 }}
             >
-              <img src="https://bookmyevent.co.za/wp-content/uploads/2020/04/cropped-Logo-header-6.png" height={60} />
+              <img
+                src="https://bookmyevent.co.za/wp-content/uploads/2020/04/cropped-Logo-header-6.png"
+                height={60}
+              />
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
@@ -40,7 +43,7 @@ const Customer = () => {
                 Hello Customer!!!
               </p>
             </Navbar.Collapse>
-            <CgProfile size={40}/>
+            <CgProfile size={40} />
           </Container>
         </Navbar>
       </section>
