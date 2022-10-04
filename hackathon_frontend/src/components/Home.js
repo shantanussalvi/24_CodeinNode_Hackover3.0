@@ -6,6 +6,7 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import Carousel from "react-bootstrap/Carousel";
 import { Row, Col, Card, Button } from "react-bootstrap";
 import { FaFacebook, FaTwitter, FaLinkedin, FaYoutube } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
@@ -27,10 +28,18 @@ const Home = () => {
               className="justify-content-end"
             >
               <Nav className="mx-5 fw-bold">
-                <Nav.Link href="#home">HOME</Nav.Link>
-                <Nav.Link href="#organize">ORGANIZE</Nav.Link>
-                <Nav.Link href="#trending">TRENDING EVENTS</Nav.Link>
-                <Nav.Link href="#home">CATEGORIES</Nav.Link>
+                <Nav.Link as={Link} to={"/"} href="#home">
+                  HOME
+                </Nav.Link>
+                <Nav.Link as={Link} to={"/organize"} href="#organize">
+                  ORGANIZE
+                </Nav.Link>
+                <Nav.Link as={Link} to={"/trending"} href="#trending">
+                  TRENDING EVENTS
+                </Nav.Link>
+                <Nav.Link as={Link} to={"/categories"} href="#categories">
+                  CATEGORIES
+                </Nav.Link>
               </Nav>
             </Navbar.Collapse>
           </Container>
@@ -102,11 +111,16 @@ const Home = () => {
               src="https://hire4event.com/blogs/wp-content/uploads/2019/03/Event-management-companies-in-Delhi-NCR.jpg"
               alt="Card image"
               className="w-100"
-              style={{ height: 500}}
+              style={{ height: 500 }}
             />
             <Card.ImgOverlay>
-              <Card.Title className="text-center fw-bold text-white" style={{fontSize:70}}>About Us</Card.Title>
-              <Card.Text style={{marginTop:200,fontSize:20}}>
+              <Card.Title
+                className="text-center fw-bold text-white"
+                style={{ fontSize: 70 }}
+              >
+                About Us
+              </Card.Title>
+              <Card.Text style={{ marginTop: 200, fontSize: 20 }}>
                 Our solutions cater crafted events that are focused majorly on
                 the special occasions such as Corporate Events, Conferences &
                 Seminars, MICE, Award functions, Media / Press meets, Customer /
