@@ -15,7 +15,7 @@ const MyNavbar = () => {
         style={{ backgroundColor: "black"}}
       >
         <Container>
-          <Navbar.Brand href="#home" className="m-2 mx-4 fw-bold">
+          <Navbar.Brand href="#home" as={Link} to={"/"} className="m-2 mx-4 fw-bold">
             Book My Event
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
