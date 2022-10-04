@@ -29,7 +29,7 @@ const Customer = () => {
               className="fw-bold"
               style={{ marginLeft: 0 }}
             >
-              Book My Event
+              <img src="https://bookmyevent.co.za/wp-content/uploads/2020/04/cropped-Logo-header-6.png" height={60} />
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
