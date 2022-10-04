@@ -13,10 +13,10 @@ const Home = () => {
   return (
     <div>
       <section className="nav">
-        <MyNavbar/>
+        <MyNavbar />
       </section>
 
-      <section className="carousel" style={{margin:10}}>
+      <section className="carousel" style={{ margin: 10 }}>
         <Carousel>
           <Carousel.Item>
             <img
@@ -77,34 +77,34 @@ const Home = () => {
       </section>
       <section className="about p-3">
         {/* <Container> */}
-          <Card className="bg-dark text-white text-start fw-bold">
-            <Card.Img
-              src="https://hire4event.com/blogs/wp-content/uploads/2019/03/Event-management-companies-in-Delhi-NCR.jpg"
-              alt="Card image"
-              className="w-100"
-              style={{ height: 500 }}
-            />
-            <Card.ImgOverlay>
-              <Card.Title
-                className="text-center fw-bold text-white"
-                style={{ fontSize: 70 }}
-              >
-                About Us
-              </Card.Title>
-              <Card.Text style={{ marginTop: 200, fontSize: 20 }}>
-                Our solutions cater crafted events that are focused majorly on
-                the special occasions such as Corporate Events, Conferences &
-                Seminars, MICE, Award functions, Media / Press meets, Customer /
-                Dealer interaction programs, Brand Extension Exercises,
-                Celebrity Management, Live Concerts, Stage Shows, B2B & B2C
-                Events, Networking Events, VIP Visits, Trade Promotions &
-                Activations, Manpower Lead Activations, Product Launches,
-                Roadshows, Facility Inaugurations, Employee Motivation Programs
-                and Residential Activations.
-              </Card.Text>
-              {/* <Card.Text>Last updated 3 mins ago</Card.Text> */}
-            </Card.ImgOverlay>
-          </Card>
+        <Card className="bg-dark text-white text-start fw-bold">
+          <Card.Img
+            src="https://hire4event.com/blogs/wp-content/uploads/2019/03/Event-management-companies-in-Delhi-NCR.jpg"
+            alt="Card image"
+            className="w-100"
+            style={{ height: 500 }}
+          />
+          <Card.ImgOverlay>
+            <Card.Title
+              className="text-center fw-bold text-white"
+              style={{ fontSize: 70 }}
+            >
+              About Us
+            </Card.Title>
+            <Card.Text style={{ marginTop: 200, fontSize: 20 }}>
+              Our solutions cater crafted events that are focused majorly on the
+              special occasions such as Corporate Events, Conferences &
+              Seminars, MICE, Award functions, Media / Press meets, Customer /
+              Dealer interaction programs, Brand Extension Exercises, Celebrity
+              Management, Live Concerts, Stage Shows, B2B & B2C Events,
+              Networking Events, VIP Visits, Trade Promotions & Activations,
+              Manpower Lead Activations, Product Launches, Roadshows, Facility
+              Inaugurations, Employee Motivation Programs and Residential
+              Activations.
+            </Card.Text>
+            {/* <Card.Text>Last updated 3 mins ago</Card.Text> */}
+          </Card.ImgOverlay>
+        </Card>
         {/* </Container> */}
       </section>
       <section className="footer">

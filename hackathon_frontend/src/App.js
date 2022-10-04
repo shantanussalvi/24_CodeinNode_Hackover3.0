@@ -8,14 +8,13 @@ import Customer from "./components/Customer";
 function App() {
   return (
     <BrowserRouter>
-
       <div className="App">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/organize" element={<Organizer />} />
           <Route path="/trending" element={<Home />} />
           <Route path="/categories" element={<Home />} />
-          <Route path="/customer" element={<Customer/>} />
+          <Route path="/customer" element={<Customer />} />
           <Route path="/organize/status" element={<Home />} />
         </Routes>
       </div>
