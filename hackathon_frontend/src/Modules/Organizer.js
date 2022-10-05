@@ -29,7 +29,7 @@ const Organizer = () => {
             <Navbar.Collapse id="basic-navbar-nav">
               <Button
                 className="text-center text-white ms-auto fw-bold" variant="secondary"
-                style={{ fontSize: 15}} as={Link} to={"/organize/status"}
+                style={{ fontSize: 15}} as={Link} to={"/application"}
               >
                 Application Status
               </Button>
