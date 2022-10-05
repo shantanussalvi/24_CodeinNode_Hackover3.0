@@ -5,7 +5,7 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { Button, Card, CardGroup, Row, Col, Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { CgProfile } from "react-icons/cg";
+
 
 const ApplicationStatus = () => {
   return (
@@ -41,10 +41,10 @@ const ApplicationStatus = () => {
                 className="text-center text-white mx-auto fw-bold"
                 style={{ fontSize: 25 }}
               >
-                Hello Admin!!!
+                Hello Organizer!!!
               </p>
             </Navbar.Collapse>
-            <CgProfile size={40} />
+           
           </Container>
         </Navbar>
       </section>

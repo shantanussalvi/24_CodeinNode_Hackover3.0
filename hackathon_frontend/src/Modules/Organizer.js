@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import MyNavbar from '../components/MyNavbar'
 import '../styles/organizer.css'
 import { AiOutlineLogout } from "react-icons/ai";
-
+import Nav from "react-bootstrap/Nav";
 const Organizer = () => {
 
   return (
@@ -37,7 +37,7 @@ const Organizer = () => {
                 Application Status
               </Button>
             </Navbar.Collapse>
-            <AiOutlineLogout size={40} style={{marginLeft:'50'}}/>
+            <Nav.Link as={Link} to={'/'}><AiOutlineLogout size={40} style={{marginLeft:'10'}}/></Nav.Link>
           </Container>
         </Navbar>
       </section>
