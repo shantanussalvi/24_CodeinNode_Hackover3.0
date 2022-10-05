@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import "./Login1.scss";
-import { Navigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 export default function Login() {
+    const navigate = useNavigate()
     const [signup, setSignup] = useState(true);
     const toggleSignup = () => {
         setSignup(!signup);
@@ -21,23 +22,28 @@ export default function Login() {
     const loginData = async (e) => {
         //e.preventDefault();
         const { email, password } = login;
+        console.log("Login");
+        console.log(login)
         const res = await fetch("/signin", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
-          // A common use of JSON is to exchange data to/from a web server. When sending data to a web server, the data has to be a string. Convert a javascript object into string with JSON.stringify()
           body: JSON.stringify({
             email,
             password,
           }),
         });
         const data = await res.json();
-        if (data.status === 422 || !data) {
+        console.log(data);
+        if (data.error) {
+            // e.preventDefault();
           alert("Invalid Login credentials");
+          
         } else {
-          alert("Login successful");
-          <Navigate to="/admin" />;
+            navigate('/admin');
+        //   alert("Login successful");
+          
         }
       };
     return (
@@ -64,11 +70,11 @@ export default function Login() {
                             // placeholder="Enter your password"
                             />
                         </label>
-                        <Link to="/admin">
+                        
                             <button className="submit" type="button" onClick={loginData}>
                                 Sign In
                             </button>
-                        </Link>
+                        
                         {/* <p className="forgot-pass">Forgot Password ?</p> */}
                     </div>
 

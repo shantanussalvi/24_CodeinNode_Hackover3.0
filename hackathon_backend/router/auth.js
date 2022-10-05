@@ -6,6 +6,7 @@ const router = express.Router();
 require('../db/conn');
 const User = require('../models/userSchema');
 const Organizer = require('../models/organizerSchema');
+const Cust = require('../models/custSchema');
 
 router.post('/organize', async (req, res) => {
     const organizer = req.body;
@@ -66,6 +67,76 @@ router.post('/register', async (req, res) => {
     }
 })
 
+router.post('/custsignin', async (req, res) => {
+    try {
+        const { email, password } = req.body;
+        // Validation
+        if (!email || !password) {
+            // 422 - Unprocessable entity
+            return res.status(422).json({ error: "Please fill all the fields" });
+        }
+
+        const custLogin = await Cust.findOne({ email: email });
+        console.log(custLogin);
+
+        if (custLogin) {
+            const isMatch = await bcrypt.compare(password, custLogin.password);
+
+            // // jwt(json web token) - unique id
+            // const token = await userLogin.generateAuthToken();
+            // console.log(token);
+
+            // // Creates a cookie which expires after 30 days
+            // res.cookie("jwtoken", token, {
+            //     expires: new Date(Date.now()+25892000000),
+            //     httpOnly: true
+            // });
+
+            if (!isMatch) {
+                // 400 - Bad request
+                res.status(400).json({ error: 'Invalid credentials' });
+            } else {
+                res.json({ message: 'user signed in sucessfully' });
+            }
+        } else {
+            res.status(400).json({ error: 'Invalid credentials' });
+        }
+    } catch (err) {
+        console.log(err);
+    }
+})
+
+router.post('/custregister', async (req, res) => {
+    // get the data sent by user
+    const { name, email, phone, password} = req.body;
+
+    // Validation
+    if ( !name || !email || !phone || !password) {
+        // 422 - Unprocessable entity
+        return res.status(422).json({ error: "Please fill all the fields" });
+    }
+    try {
+        // check if email is present in the database
+        // Await - waits for promise to return
+        // find one returns entire document if email exists
+        const userExist = await Cust.findOne({ email: email });
+
+        if (userExist) {
+            return res.status(422).json({ error: "Email already exists" });
+        } 
+        else {
+            const cust = new Cust({ name, email, phone, password});
+
+            await cust.save();
+
+            res.status(201).json({ message: "user registered successfully" });
+            // As this is try-catch if error occurs it will execute catch
+        }
+    } catch (err) {
+        console.log(err)
+    }
+})
+
 // login route
 router.post('/signin', async (req, res) => {
     try {
@@ -82,15 +153,15 @@ router.post('/signin', async (req, res) => {
         if (userLogin) {
             const isMatch = await bcrypt.compare(password, userLogin.password);
 
-            // jwt(json web token) - unique id
-            const token = await userLogin.generateAuthToken();
-            console.log(token);
+            // // jwt(json web token) - unique id
+            // const token = await userLogin.generateAuthToken();
+            // console.log(token);
 
-            // Creates a cookie which expires after 30 days
-            res.cookie("jwtoken", token, {
-                expires: new Date(Date.now()+25892000000),
-                httpOnly: true
-            });
+            // // Creates a cookie which expires after 30 days
+            // res.cookie("jwtoken", token, {
+            //     expires: new Date(Date.now()+25892000000),
+            //     httpOnly: true
+            // });
 
             if (!isMatch) {
                 // 400 - Bad request

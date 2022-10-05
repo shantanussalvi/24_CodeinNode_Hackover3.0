@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import "./Login1.scss";
-import { Navigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 
 import { Link } from "react-router-dom";
 
 export default function Login() {
+  const navigate = useNavigate()
   const [user, setUser] = useState({
     name: "",
     email: "",
@@ -20,12 +21,12 @@ export default function Login() {
   const [login, setLogin] = useState({
     email: "",
     password: "",
-   
+
   });
   const handleInput1 = (e) => {
     const name = e.target.name;
     const value = e.target.value;
-    setUser({ ...login, [name]: value });
+    setLogin({ ...login, [name]: value });
   };
 
   const [signup, setSignup] = useState(true);
@@ -40,7 +41,6 @@ export default function Login() {
       headers: {
         "Content-Type": "application/json",
       },
-      // A common use of JSON is to exchange data to/from a web server. When sending data to a web server, the data has to be a string. Convert a javascript object into string with JSON.stringify()
       body: JSON.stringify({
         name,
         email,
@@ -49,27 +49,41 @@ export default function Login() {
         phone,
       }),
     });
+    const data = await res.json();
+    if (data.status === 422 || !data) {
+      alert("Invalid registration");
+    }
+    else {
+      alert("Registration successful");
+      navigate('/organize')
+    }
   };
+  
   const loginData = async (e) => {
     //e.preventDefault();
     const { email, password } = login;
+    console.log("Login");
+    console.log(login)
     const res = await fetch("/signin", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      // A common use of JSON is to exchange data to/from a web server. When sending data to a web server, the data has to be a string. Convert a javascript object into string with JSON.stringify()
       body: JSON.stringify({
         email,
         password,
       }),
     });
     const data = await res.json();
-    if (data.status === 422 || !data) {
+    console.log(data);
+    if (data.error) {
+        // e.preventDefault();
       alert("Invalid Login credentials");
+      
     } else {
-      alert("Login successful");
-      <Navigate to="/organize" />;
+        navigate('/organize');
+    //   alert("Login successful");
+      
     }
   };
 
@@ -85,7 +99,7 @@ export default function Login() {
                 type="text"
                 name="email"
                 onChange={handleInput1}
-                // placeholder="Enter your username"
+              // placeholder="Enter your username"
               />
             </label>
             <label>
@@ -94,14 +108,14 @@ export default function Login() {
                 type="password"
                 name="password"
                 onChange={handleInput1}
-                // placeholder="Enter your password"
+              // placeholder="Enter your password"
               />
             </label>
-            <Link to="/organize">
-              <button className="submit" type="button" onClick={loginData}>
-                Sign In
-              </button>
-            </Link>
+
+            <button className="submit" type="button" onClick={loginData}>
+              Sign In
+            </button>
+
             {/* <p className="forgot-pass">Forgot Password ?</p> */}
           </div>
 
@@ -148,12 +162,12 @@ export default function Login() {
                 <span>Mobile number</span>
                 <input type="number" name="phone" onChange={handleInput} />
               </label>
-              <Link to="/organize">
-                {" "}
-                <button type="button" className="submit" onClick={postData}>
-                  Sign Up Now
-                </button>
-              </Link>
+
+              {" "}
+              <button type="button" className="submit" onClick={postData}>
+                Sign Up Now
+              </button>
+
             </div>
           </div>
         </div>
