@@ -37,10 +37,10 @@ router.get('/get-organize', async (req,res)=>{
 // Using async-await
 router.post('/register', async (req, res) => {
     // get the data sent by user
-    const { name, email, phone, idProof, password, cpassword } = req.body;
+    const { name, email, phone, idProof, password} = req.body;
 
     // Validation
-    if ( !name || !email || !phone || !idProof || !password ||!cpassword ) {
+    if ( !name || !email || !phone || !idProof || !password) {
         // 422 - Unprocessable entity
         return res.status(422).json({ error: "Please fill all the fields" });
     }
@@ -52,10 +52,9 @@ router.post('/register', async (req, res) => {
 
         if (userExist) {
             return res.status(422).json({ error: "Email already exists" });
-        } else if (password !== cpassword) {
-            return res.status(422).json({ error: "Password and confirm password not matching" });
-        } else {
-            const user = new User({ name, email, phone, idProof, password, cpassword });
+        } 
+        else {
+            const user = new User({ name, email, phone, idProof, password});
 
             await user.save();
 

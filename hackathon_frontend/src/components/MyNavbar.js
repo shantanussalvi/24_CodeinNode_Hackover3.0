@@ -18,7 +18,7 @@ const MyNavbar = () => {
           <Navbar.Brand className="m-2 mx-4 fw-bold">
             <img
               src="https://bookmyevent.co.za/wp-content/uploads/2020/04/cropped-Logo-header-6.png"
-              height={60}
+              height={42}
               as={Link} to={"/"}
             />
           </Navbar.Brand>
@@ -28,20 +28,25 @@ const MyNavbar = () => {
             className="justify-content-end"
           >
             <Nav className="mx-5 fw-bold">
-              <Nav.Link as={Link} to={"/"} href="#home">
+              {/* <Nav.Link as={Link} to={"/"} href="#home">
                 HOME
-              </Nav.Link>
-              <Nav.Link as={Link} to={"/organize"} href="#organize">
-                ORGANIZE
-              </Nav.Link>
-              <Nav.Link as={Link} to={"/trending"} href="#trending">
+              </Nav.Link> */}
+              
+              {/* <Nav.Link as={Link} to={"/trending"} href="#trending">
                 TRENDING EVENTS
+              </Nav.Link> */}
+              {/* <Nav.Link className= "nav-link scrollto" as={Link}  href="#about">
+              ABOUT US
+              </Nav.Link> */}
+              <a className="nav-link scrollto" href="#about">ABOUT US</a>
+              <Nav.Link as={Link} to={"/loginadmin"} href="#categories">
+              ADMIN LOGIN
               </Nav.Link>
-              <Nav.Link as={Link} to={"/categories"} href="#categories">
-                CATEGORIES
+              <Nav.Link as={Link} to={"/login"} href="#organize">
+                ORGANIZE EVENT
               </Nav.Link>
-              <Nav.Link as={Link} to={"/login"} href="#categories">
-                LOGIN
+              <Nav.Link as={Link} to={"/logincustomer"} href="#categories">
+               CUSTOMER LOGIN
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>

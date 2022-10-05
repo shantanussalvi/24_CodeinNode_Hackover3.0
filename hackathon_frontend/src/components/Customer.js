@@ -6,7 +6,7 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { Button, Card, CardGroup, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { CgProfile } from "react-icons/cg";
+import { AiOutlineLogout } from "react-icons/ai";
 
 const Customer = () => {
   return (
@@ -44,7 +44,7 @@ const Customer = () => {
                 Hello Customer!!!
               </p>
             </Navbar.Collapse>
-            <CgProfile size={40} />
+            <Nav.Link as={Link} to={'/'}><AiOutlineLogout size={40} style={{marginLeft:'10'}}/></Nav.Link>
           </Container>
         </Navbar>
       </section>
@@ -52,7 +52,7 @@ const Customer = () => {
         <Container>
           <p
             className="text-start lead fw-bold text-white"
-            style={{ paddingTop: 60, fontSize: 40 }}
+            style={{ paddingTop: 60, fontSize: 40,marginTop:30 }}
           >
             Latest Events from Organizers!!!
           </p>

@@ -16,14 +16,14 @@ const Home = () => {
         <MyNavbar />
       </section>
 
-      <section className="carousel" style={{ margin: 10 }}>
+      <section className="carousel"style={{ margin: 10 }}>
         <Carousel>
           <Carousel.Item>
             <img
               className="d-block w-100"
               src="https://eventective-media.azureedge.net/2893076_lg.jpg"
               alt="First slide"
-              style={{ height: 700 }}
+              style={{ height: 520 }}
             />
             <Carousel.Caption>
               <h3 className="display-3 fw-bold">Theater Event</h3>
@@ -35,7 +35,7 @@ const Home = () => {
               className="d-block w-100"
               src="https://media.timeout.com/images/101206597/image.jpg"
               alt="Second slide"
-              style={{ height: 700 }}
+              style={{ height: 520 }}
             />
 
             <Carousel.Caption>
@@ -48,7 +48,7 @@ const Home = () => {
               className="d-block w-100"
               src="https://i.guim.co.uk/img/media/ae71051df54f246e1d34fa9bcaea8f4e6fdedb9b/0_133_4000_2400/master/4000.jpg?width=1200&quality=85&auto=format&fit=max&s=12637660caff9bc8a7ef073b148bd6da"
               alt="Third slide"
-              style={{ height: 700 }}
+              style={{ height: 520 }}
             />
 
             <Carousel.Caption>
@@ -63,7 +63,7 @@ const Home = () => {
               className="d-block w-100"
               src="https://media.istockphoto.com/photos/large-crowd-people-attend-a-sports-event-stadium-basketball-court-picture-id522738337?k=20&m=522738337&s=170667a&w=0&h=kKyI_YcKmCDqahWg8kdWNKJnm1I57UvAGhwyHlXPmhU="
               alt="Fourth slide"
-              style={{ height: 700 }}
+              style={{ height: 520 }}
             />
 
             <Carousel.Caption>
@@ -75,7 +75,7 @@ const Home = () => {
           </Carousel.Item>
         </Carousel>
       </section>
-      <section className="about p-3">
+      <section id ="about" className="about p-3">
         {/* <Container> */}
         <Card className="bg-dark text-white text-start fw-bold">
           <Card.Img
@@ -86,12 +86,12 @@ const Home = () => {
           />
           <Card.ImgOverlay>
             <Card.Title
-              className="text-center fw-bold text-white"
+              className="text-center  text-white"
               style={{ fontSize: 70 }}
             >
               About Us
             </Card.Title>
-            <Card.Text style={{ marginTop: 40, fontSize: 30 }}>
+            <Card.Text style={{ marginTop: 170, fontSize: 25 }}>
               Our solutions cater crafted events that are focused majorly on the
               special occasions such as Corporate Events, Conferences &
               Seminars, MICE, Award functions, Media / Press meets, Customer /
