@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Login1.scss";
-
+import { Navigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 export default function Login() {
@@ -8,6 +8,38 @@ export default function Login() {
     const toggleSignup = () => {
         setSignup(!signup);
     };
+    const [login, setLogin] = useState({
+        email: "",
+        password: "",
+       
+      });
+      const handleInput1 = (e) => {
+        const name = e.target.name;
+        const value = e.target.value;
+        setLogin({ ...login, [name]: value });
+      };
+    const loginData = async (e) => {
+        //e.preventDefault();
+        const { email, password } = login;
+        const res = await fetch("/signin", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          // A common use of JSON is to exchange data to/from a web server. When sending data to a web server, the data has to be a string. Convert a javascript object into string with JSON.stringify()
+          body: JSON.stringify({
+            email,
+            password,
+          }),
+        });
+        const data = await res.json();
+        if (data.status === 422 || !data) {
+          alert("Invalid Login credentials");
+        } else {
+          alert("Login successful");
+          <Navigate to="/admin" />;
+        }
+      };
     return (
         <>
             <div id="login-page">
@@ -19,6 +51,7 @@ export default function Login() {
                             <input
                                 type="text"
                                 name="email"
+                                onChange={handleInput1}
                             // placeholder="Enter your username"
                             />
                         </label>
@@ -27,11 +60,12 @@ export default function Login() {
                             <input
                                 type="password"
                                 name="password"
+                                onChange={handleInput1}
                             // placeholder="Enter your password"
                             />
                         </label>
                         <Link to="/admin">
-                            <button className="submit" type="button">
+                            <button className="submit" type="button" onClick={loginData}>
                                 Sign In
                             </button>
                         </Link>
