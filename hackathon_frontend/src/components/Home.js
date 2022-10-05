@@ -91,7 +91,7 @@ const Home = () => {
             >
               About Us
             </Card.Title>
-            <Card.Text style={{ marginTop: 40, fontSize: 30 }}>
+            <Card.Text style={{ marginTop: 200, fontSize: 20 }}>
               Our solutions cater crafted events that are focused majorly on the
               special occasions such as Corporate Events, Conferences &
               Seminars, MICE, Award functions, Media / Press meets, Customer /

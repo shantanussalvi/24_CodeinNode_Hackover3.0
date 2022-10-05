@@ -52,7 +52,7 @@ const Customer = () => {
         <Container>
           <p
             className="text-start lead fw-bold text-white"
-            style={{ paddingTop: 60, fontSize: 40 }}
+            style={{ paddingTop: 60, fontSize: 40,marginTop:30 }}
           >
             Latest Events from Organizers!!!
           </p>
