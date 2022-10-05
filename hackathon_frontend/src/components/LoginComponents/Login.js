@@ -1,13 +1,78 @@
 import React, { useState } from "react";
 import "./Login1.scss";
+import { Navigate } from "react-router-dom";
 
 import { Link } from "react-router-dom";
 
 export default function Login() {
+  const [user, setUser] = useState({
+    name: "",
+    email: "",
+    password: "",
+    idProof: "",
+    phone: 0,
+  });
+  const handleInput = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    setUser({ ...user, [name]: value });
+  };
+  const [login, setLogin] = useState({
+    email: "",
+    password: "",
+   
+  });
+  const handleInput1 = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    setUser({ ...login, [name]: value });
+  };
+
   const [signup, setSignup] = useState(true);
   const toggleSignup = () => {
     setSignup(!signup);
   };
+  const postData = async (e) => {
+    //e.preventDefault();
+    const { name, email, password, idProof, phone } = user;
+    const res = await fetch("/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      // A common use of JSON is to exchange data to/from a web server. When sending data to a web server, the data has to be a string. Convert a javascript object into string with JSON.stringify()
+      body: JSON.stringify({
+        name,
+        email,
+        password,
+        idProof,
+        phone,
+      }),
+    });
+  };
+  const loginData = async (e) => {
+    //e.preventDefault();
+    const { email, password } = login;
+    const res = await fetch("/signin", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      // A common use of JSON is to exchange data to/from a web server. When sending data to a web server, the data has to be a string. Convert a javascript object into string with JSON.stringify()
+      body: JSON.stringify({
+        email,
+        password,
+      }),
+    });
+    const data = await res.json();
+    if (data.status === 422 || !data) {
+      alert("Invalid Login credentials");
+    } else {
+      alert("Login successful");
+      <Navigate to="/organize" />;
+    }
+  };
+
   return (
     <>
       <div id="login-page">
@@ -19,6 +84,7 @@ export default function Login() {
               <input
                 type="text"
                 name="email"
+                onChange={handleInput1}
                 // placeholder="Enter your username"
               />
             </label>
@@ -27,11 +93,12 @@ export default function Login() {
               <input
                 type="password"
                 name="password"
+                onChange={handleInput1}
                 // placeholder="Enter your password"
               />
             </label>
             <Link to="/organize">
-              <button className="submit" type="button">
+              <button className="submit" type="button" onClick={loginData}>
                 Sign In
               </button>
             </Link>
@@ -59,15 +126,15 @@ export default function Login() {
               <h2>Sign Up</h2>
               <label>
                 <span>Name</span>
-                <input type="text" />
+                <input type="text" name="name" onChange={handleInput} />
               </label>
               <label>
                 <span>Email</span>
-                <input type="email" />
+                <input type="email" name="email" onChange={handleInput} />
               </label>
               <label>
                 <span>Password</span>
-                <input type="password" />
+                <input type="password" name="password" onChange={handleInput} />
               </label>
               {/* <label>
                 <span>Confirm Password</span>
@@ -75,15 +142,15 @@ export default function Login() {
               </label> */}
               <label>
                 <span>Id Proof </span>
-                <input type="number" />
+                <input type="number" name="idProof" onChange={handleInput} />
               </label>
               <label>
                 <span>Mobile number</span>
-                <input type="number" />
+                <input type="number" name="phone" onChange={handleInput} />
               </label>
               <Link to="/organize">
                 {" "}
-                <button type="button" className="submit">
+                <button type="button" className="submit" onClick={postData}>
                   Sign Up Now
                 </button>
               </Link>
