@@ -2,7 +2,8 @@ const mongoose = require('mongoose');
 
 const organizerSchema = new mongoose.Schema({
     eventType: {
-        type: String
+        type: String,
+        required: true
     },
     eventName: {
         type: String,
@@ -21,22 +22,16 @@ const organizerSchema = new mongoose.Schema({
         required: true
     },
     datetime: {
-        type: Date,
+        type: String,
         required: true,
     },
-    tickets: {
-        ticktype: {
-            type: String,
-            required: true
-        },
-        cost: {
-            type: Number,
-            required: true
-        },
-        seats: {
-            type: Number,
-            required: true
-        }
+    cost: {
+        type: Number,
+        required: true
+    },
+    seats: {
+        type: Number,
+        required: true
     },
 })
 

@@ -22,12 +22,7 @@ const userSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true
-    },
-    // Confirm password
-    cpassword: {
-        type: String,
-        required: true
-    },
+    }
 })
 
 // Hashing password

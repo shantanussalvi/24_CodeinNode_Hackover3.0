@@ -11,17 +11,15 @@ import axios from 'axios';
 const Admin = () => {
   const [organizer, setOrganizer] = useState({})
 
-
   var data;
   const getData = () => {
     axios.get('/get-organize')
     .then((res) => {
       data = res.data;
-      // data.data.map((d) => {
-      //   setOrganizer(d);
-      // })
-      setOrganizer(data.data);
-      console.log(data.data)
+      data.data.map((d) => {
+        setOrganizer(d);
+      })
+      // console.log(data.data)
       console.log(organizer);
     })
     .catch((res) => {
@@ -71,7 +69,7 @@ const Admin = () => {
         </Navbar>
       </section>
       <section style={{ marginTop: 100, paddingX: 50 }}>
-        <Button onClick={getData} />
+        <Button onClick={getData} >Fetch</Button>
         <h3>Verified Organizers</h3>
         <Table striped bordered hover variant="light" className="p-3">
           <thead>
@@ -98,12 +96,15 @@ const Admin = () => {
               </td>
             </tr>
             <tr>
-              {organizer.map((org) => {
-                <td>{org.eventType}</td>
-              })}
-              <td>
+              <td>{organizer.eventName}</td>
+              <td>{organizer.eventType}</td>
+              <td>{organizer.venue}</td>
+              <td>{organizer.datetime}</td>
+              <td>{organizer.cost}</td>
+              <td>{organizer.seats}</td>
+              {/* <td>
                 <Button className="btn-danger">Delete</Button>
-              </td>
+              </td> */}
             </tr>
 
             {/* <tr>
