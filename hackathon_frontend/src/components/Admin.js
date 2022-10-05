@@ -96,6 +96,7 @@ const Admin = () => {
               </td>
             </tr>
             <tr>
+<<<<<<< Updated upstream
               <td>{organizer.eventName}</td>
               <td>{organizer.eventType}</td>
               <td>{organizer.venue}</td>
@@ -103,6 +104,12 @@ const Admin = () => {
               <td>{organizer.cost}</td>
               <td>{organizer.seats}</td>
               {/* <td>
+=======
+              {/* {organizer.map((org) => {
+                <td>{org.eventType}</td>
+              })}
+              <td>
+>>>>>>> Stashed changes
                 <Button className="btn-danger">Delete</Button>
               </td> */}
             </tr>
