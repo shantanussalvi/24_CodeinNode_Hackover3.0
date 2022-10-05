@@ -19,9 +19,10 @@ const Organizer = () => {
         >
           <Container>
             <Navbar.Brand
-              href="#home"
+              
               className="fw-bold"
               style={{ marginLeft: 0 }}
+              as={Link} to={"/"}
             >
               <img src="https://bookmyevent.co.za/wp-content/uploads/2020/04/cropped-Logo-header-6.png" height={60} />
             </Navbar.Brand>
