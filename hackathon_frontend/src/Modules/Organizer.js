@@ -65,6 +65,11 @@ const Organizer = () => {
                             </Form.Group>
 
                             <Form.Group className="mt-3" controlId="eventName">
+                                <Form.Label>Event Description: </Form.Label>
+                                <Form.Control as="textarea" placeholder="Enter Event Description" style={{height:"200px"}} />
+                            </Form.Group>
+
+                            <Form.Group className="mt-3" controlId="eventName">
                                 <Form.Label>Documents: </Form.Label>
                                 <Form.Control type="file" placeholder="Enter Event Location" />
                             </Form.Group>
