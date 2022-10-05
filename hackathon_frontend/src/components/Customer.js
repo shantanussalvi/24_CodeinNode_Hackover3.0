@@ -95,7 +95,7 @@ const Customer = () => {
                     <p>Date:12/10/22 Time:6:00pm</p>
                     <p>Price:Rs.1000</p>
                     <p>Seats Available:10</p>
-                    <Button variant="primary" className="p-2">
+                    <Button variant="primary" className="p-2" as={Link} to={"/payment"}>
                       BOOK NOW
                     </Button>
                   </Card.Body>
@@ -121,7 +121,7 @@ const Customer = () => {
                     <p>Date:22/10/22 Time:9:00pm</p>
                     <p>Price:Rs.5000</p>
                     <p>Seats Available:100</p>
-                    <Button variant="primary" className="p-2">
+                    <Button variant="primary" className="p-2" as={Link} to={"/payment"}>
                       BOOK NOW
                     </Button>
                   </Card.Body>
@@ -147,7 +147,7 @@ const Customer = () => {
                     <p>Date:5/10/22 Time:6:00pm</p>
                     <p>Price:Rs.3000</p>
                     <p>Seats Available:50</p>
-                    <Button variant="primary" className="p-2">
+                    <Button variant="primary" className="p-2" as={Link} to={"/payment"}>
                       BOOK NOW
                     </Button>
                   </Card.Body>
@@ -173,7 +173,7 @@ const Customer = () => {
                     <p>Date:15/10/22 Time:8:00pm</p>
                     <p>Price:Rs.4000</p>
                     <p>Seats Available:50</p>
-                    <Button variant="primary" className="p-2">
+                    <Button variant="primary" className="p-2" as={Link} to={"/payment"}>
                       BOOK NOW
                     </Button>
                   </Card.Body>
