@@ -142,13 +142,13 @@ const Home = () => {
             <Col sm={4} variant="dark">
               <h2>NAVIGATION</h2>
 
-              <a href="">HOME</a>
+              <a className="nav-link-scrolto" href="#about">ABOUT US</a>
               <br />
-              <a href="">ORGANIZE</a>
+              <a href="/loginadmin">ADMIN</a>
               <br />
-              <a href="">TRENDING EVENTS</a>
+              <a href="/login">ORGANIZE</a>
               <br />
-              <a href="">CATEGORIES</a>
+              <a href="/logincustomer">CUSTOMER</a>
               <br />
             </Col>
             <Col sm={4}>
