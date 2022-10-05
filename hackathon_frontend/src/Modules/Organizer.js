@@ -19,9 +19,10 @@ const Organizer = () => {
         >
           <Container>
             <Navbar.Brand
-              href="#home"
+              
               className="fw-bold"
               style={{ marginLeft: 0 }}
+              as={Link} to={"/"}
             >
               <img src="https://bookmyevent.co.za/wp-content/uploads/2020/04/cropped-Logo-header-6.png" height={60} />
             </Navbar.Brand>
@@ -29,7 +30,7 @@ const Organizer = () => {
             <Navbar.Collapse id="basic-navbar-nav">
               <Button
                 className="text-center text-white ms-auto fw-bold" variant="secondary"
-                style={{ fontSize: 15}} as={Link} to={"/organize/status"}
+                style={{ fontSize: 15}} as={Link} to={"/application"}
               >
                 Application Status
               </Button>

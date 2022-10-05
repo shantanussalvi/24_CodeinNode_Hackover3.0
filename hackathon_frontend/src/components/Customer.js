@@ -26,7 +26,7 @@ const Customer = () => {
             <Navbar.Brand
               as={Link}
               to={"/"}
-              href="#home"
+              
               className="fw-bold"
               style={{ marginLeft: 0 }}
             >

@@ -15,10 +15,11 @@ const MyNavbar = () => {
         style={{ backgroundColor: "black", width: "100vw" }}
       >
         <Container>
-          <Navbar.Brand href="#home" className="m-2 mx-4 fw-bold">
+          <Navbar.Brand className="m-2 mx-4 fw-bold">
             <img
               src="https://bookmyevent.co.za/wp-content/uploads/2020/04/cropped-Logo-header-6.png"
               height={60}
+              as={Link} to={"/"}
             />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
