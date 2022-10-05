@@ -30,7 +30,7 @@ export default function Login() {
                 // placeholder="Enter your password"
               />
             </label>
-            <Link to="/organize">
+            <Link to="/customer">
               <button className="submit" type="button">
                 Sign In
               </button>
@@ -73,15 +73,15 @@ export default function Login() {
                 <span>Confirm Password</span>
                 <input type="password" />
               </label> */}
-              <label>
+              {/* <label>
                 <span>Id Proof </span>
                 <input type="number" />
-              </label>
+              </label> */}
               <label>
                 <span>Mobile number</span>
                 <input type="number" />
               </label>
-              <Link to="/organize">
+              <Link to="/customer">
                 {" "}
                 <button type="button" className="submit">
                   Sign Up Now
