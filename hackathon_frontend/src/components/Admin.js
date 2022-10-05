@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -6,8 +6,30 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import { Button, Card, CardGroup, Row, Col, Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { CgProfile } from "react-icons/cg";
+import axios from 'axios';
 
 const Admin = () => {
+  const [organizer, setOrganizer] = useState({})
+
+
+  var data;
+  const getData = () => {
+    axios.get('/get-organize')
+    .then((res) => {
+      data = res.data;
+      // data.data.map((d) => {
+      //   setOrganizer(d);
+      // })
+      setOrganizer(data.data);
+      console.log(data.data)
+      console.log(organizer);
+    })
+    .catch((res) => {
+      alert("Error");
+    })
+  }
+
+
   return (
     <div>
       <section className="customer">
@@ -26,7 +48,7 @@ const Admin = () => {
             <Navbar.Brand
               as={Link}
               to={"/"}
-              
+
               className="fw-bold"
               style={{ marginLeft: 0 }}
             >
@@ -49,6 +71,7 @@ const Admin = () => {
         </Navbar>
       </section>
       <section style={{ marginTop: 100, paddingX: 50 }}>
+        <Button onClick={getData} />
         <h3>Verified Organizers</h3>
         <Table striped bordered hover variant="light" className="p-3">
           <thead>
@@ -75,6 +98,15 @@ const Admin = () => {
               </td>
             </tr>
             <tr>
+              {organizer.map((org) => {
+                <td>{org.eventType}</td>
+              })}
+              <td>
+                <Button className="btn-danger">Delete</Button>
+              </td>
+            </tr>
+
+            {/* <tr>
               <td>James</td>
               <td>Theatre Event</td>
               <td>Growels Mall</td>
@@ -106,7 +138,7 @@ const Admin = () => {
               <td>
                 <Button className="btn-danger">Delete</Button>
               </td>
-            </tr>
+            </tr> */}
           </tbody>
         </Table>
       </section>

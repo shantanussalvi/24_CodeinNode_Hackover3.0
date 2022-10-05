@@ -5,6 +5,34 @@ const router = express.Router();
 
 require('../db/conn');
 const User = require('../models/userSchema');
+const Organizer = require('../models/organizerSchema');
+
+router.post('/organize', async (req, res) => {
+    const organizer = req.body;
+    if(organizer){
+        const org = new Organizer(organizer);
+        await org.save();
+        res.status(201).json({ message: "event created successfully" });
+    }else{
+        res.status(500).json({message: "Database error"});
+    }
+})
+
+router.get('/get-organize', async (req,res)=>{
+    try{
+      const org = await Organizer.find();
+      console.log("Hello "+org);
+      return res.status(200).json({
+        success: true,
+        count: org.length,
+        data: org,
+      });
+      
+    } catch(err) {
+      console.log(err);
+      res.status(500).json({ error: 'server error' });
+    }
+  });
 
 // Using async-await
 router.post('/register', async (req, res) => {
