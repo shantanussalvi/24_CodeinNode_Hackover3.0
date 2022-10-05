@@ -9,6 +9,7 @@ import Admin from "./components/Admin";
 import ApplicationStatus from "./components/ApplicationStatus";
 import LoginCustomer from "./components/LoginComponents/LoginCustomer"
 import LoginAdmin from "./components/LoginComponents/LoginAdmin"
+import Payment from "./components/Payment";
 function App() {
   return (
    
@@ -16,6 +17,7 @@ function App() {
       <div className="App">
         <Routes>
           <Route path="/login" element={<Login/>} />
+          <Route path="/payment" element={<Payment/>} />
           <Route path="/" element={<Home/>} />
           <Route path="/admin" element={<Admin/>} />
           <Route path="/organize" element={<Organizer />} />
