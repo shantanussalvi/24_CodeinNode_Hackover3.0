@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
-const userSchema = new mongoose.Schema({
+const custSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true
@@ -11,23 +11,19 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    phone: {
-        type: Number,
-        required: true
-    },
-    idProof: {
-        type: String,
-        required: true
-    },
     password: {
         type: String,
+        required: true
+    },
+    phone: {
+        type: Number,
         required: true
     },
 })
 
 // Hashing password
 // Call this method when save method is called
-userSchema.pre('save', async function (next) {
+custSchema.pre('save', async function (next) {
     if (this.isModified('password')) {
         // 12 - number of rounds
         this.password = await bcrypt.hash(this.password, 12);
@@ -37,7 +33,7 @@ userSchema.pre('save', async function (next) {
 });
 
 // Generating token
-// userSchema.methods.generateAuthToken = async function () {
+// custSchema.methods.generateAuthToken = async function () {
 //     try {
 //         let token = jwt.sign({ _id: this._id }, process.env.SECRET_KEY);
 //         this.tokens = this.tokens.concat({token:token});
@@ -49,7 +45,7 @@ userSchema.pre('save', async function (next) {
 //     }
 // }
 
-const User = mongoose.model('users', userSchema);
+const Cust = mongoose.model('cust', custSchema);
 
-module.exports = User;
+module.exports = Cust;
 

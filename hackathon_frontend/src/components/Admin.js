@@ -1,14 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { Button, Card, CardGroup, Row, Col, Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import axios from 'axios';
 import { AiOutlineLogout } from "react-icons/ai";
 
-
 const Admin = () => {
+  const [organizer, setOrganizer] = useState({})
+
+  var data;
+  const getData = () => {
+    axios.get('/get-organize')
+    .then((res) => {
+      data = res.data;
+      data.data.map((d) => {
+        setOrganizer(d);
+      })
+      // console.log(data.data)
+      console.log(organizer);
+    })
+    .catch((res) => {
+      alert("Error");
+    })
+  }
+
+
   return (
     <div>
       <section className="customer">
@@ -27,7 +46,7 @@ const Admin = () => {
             <Navbar.Brand
               as={Link}
               to={"/"}
-              
+
               className="fw-bold"
               style={{ marginLeft: 0 }}
             >
@@ -51,6 +70,7 @@ const Admin = () => {
         </Navbar>
       </section>
       <section style={{ marginTop: 100, paddingX: 50 }}>
+        <Button onClick={getData} >Fetch</Button>
         <h3>Verified Organizers</h3>
         <Table striped bordered hover variant="light" className="p-3">
           <thead>
@@ -77,6 +97,25 @@ const Admin = () => {
               </td>
             </tr>
             <tr>
+<<<<<<< Updated upstream
+              <td>{organizer.eventName}</td>
+              <td>{organizer.eventType}</td>
+              <td>{organizer.venue}</td>
+              <td>{organizer.datetime}</td>
+              <td>{organizer.cost}</td>
+              <td>{organizer.seats}</td>
+              {/* <td>
+=======
+              {/* {organizer.map((org) => {
+                <td>{org.eventType}</td>
+              })}
+              <td>
+>>>>>>> Stashed changes
+                <Button className="btn-danger">Delete</Button>
+              </td> */}
+            </tr>
+
+            {/* <tr>
               <td>James</td>
               <td>Theatre Event</td>
               <td>Growels Mall</td>
@@ -108,7 +147,7 @@ const Admin = () => {
               <td>
                 <Button className="btn-danger">Delete</Button>
               </td>
-            </tr>
+            </tr> */}
           </tbody>
         </Table>
       </section>
